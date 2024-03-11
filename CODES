@@ -368,3 +368,126 @@ int main() {
     transpose(mat, m, n);
     return 0;
 }
+
+
+/* Question: determinant of a matrix*/
+#include <stdio.h>
+#include <math.h>
+
+double determinant(int mat[10][10], int n) {
+    double det = 0;
+    if (n == 2) {
+        return (mat[0][0] * mat[1][1] - mat[0][1] * mat[1][0]);
+    }
+    int sign = 1;
+    for (int i = 0; i < n; i++) {
+        double sub_det = determinant(mat, n - 1);
+        det += sign * mat[0][i] * sub_det;
+        sign *= -1;
+    }
+    return det;
+}
+
+int main() {
+    int mat[10][10], n;
+    printf("Enter the number of rows and columns of the matrix\n");
+    scanf("%d", &n);
+    printf("Enter the elements of the matrix\n");
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            scanf("%d", &mat[i][j]);
+        }
+    }
+    double det = determinant(mat, n);
+    printf("Determinant of the matrix is %.2f\n", det);
+    return 0;
+}
+
+
+/* Question: Area of circle*/
+#include <stdio.h>
+#define PI 3.14159
+
+double area(double radius) {
+    return PI * radius * radius;
+}
+
+int main() {
+    double r;
+    printf("Enter the radius of the circle: ");
+    scanf("%lf", &r);
+    printf("Area of the circle = %.2f\n", area(r));
+    return 0;
+}
+
+
+
+/* Question: GCD of two given numbers*/
+#include <stdio.h>
+
+int gcd(int a, int b) {
+    if (b == 0)
+        return a;
+    else
+        return gcd(b, a % b);
+}
+
+int main() {
+    int a, b;
+    printf("Enter two numbers: ");
+    scanf("%d%d", &a, &b);
+    printf("GCD of %d and %d = %d\n", a, b, gcd(a, b));
+    return 0;
+}
+
+/* Question: Program to find the sum of digits of a number:*/
+#include <stdio.h>
+int sum_of_digits(int n) {
+    if (n == 0)
+        return 0;
+    else
+        return (n % 10 + sum_of_digits(n / 10));
+}
+
+int main() {
+    int num;
+    printf("Enter a number: ");
+    scanf("%d", &num);
+    printf("Sum of digits of %d = %d\n", num, sum_of_digits(num));
+    return 0;
+}
+
+/* Question: Program to find the reverse of a number::*/
+#include <stdio.h>
+int reverse(int n) {
+    if (n == 0)
+        return 0;
+    else
+        return (n % 10 * (int)pow(10, (int)log10(n)) + reverse(n / 10));
+}
+
+int main() {
+    int num;
+    printf("Enter a number: ");
+    scanf("%d", &num);
+    printf("Reverse of %d = %d\n", num, reverse(num));
+    return 0;
+}
+
+/* Question: Program to find the factorial of a number using recursion::*/
+#include <stdio.h>
+
+int factorial(int n) {
+    if (n == 0)
+        return 1;
+    else
+        return n * factorial(n - 1);
+}
+
+int main() {
+    int num;
+    printf("Enter a number: ");
+    scanf("%d", &num);
+    printf("Factorial of %d = %d\n", num, factorial(num));
+    return 0;
+}
