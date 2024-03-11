@@ -140,7 +140,7 @@ int main()
      free(p);
      }
 
-
+/* Question: matrix arithmetic ? */
 #include <stdio.h>
 
 #define ROWS 2
