@@ -241,3 +241,130 @@ int main() {
     free(ptr);
     return 0;
 }
+
+
+/* Question: basic structue code*/
+#include <stdio.h>
+
+struct Student {
+    int roll_no;
+    char name[20];
+    float marks;
+};
+
+int main() {
+    struct Student s1 = {1, "John", 85.5};
+
+    printf("Roll No: %d\n", s1.roll_no);
+    printf("Name: %s\n", s1.name);
+    printf("Marks: %.1f\n", s1.marks);
+
+ return 0;
+}
+
+ /* Question: print 10 natural numbers uisng loops*/  
+#include <stdio.h>
+
+int main() {
+    int i;
+    for (i = 1; i <= 10; i++) {
+        printf("%d ", i);
+    }
+    printf("\n");
+    return 0;
+}
+
+ /* Question: print fist 10 odd numbers uisng loops*/  
+#include <stdio.h>
+#include <stdio.h>
+
+int main() {
+    int i = 1, count = 10;
+    while (count > 0) {
+        printf("%d ", i);
+        i += 2;
+        count--;
+    }
+    printf("\n");
+    return 0;
+}
+
+ /* Question: print fist 10 even numbers uisng loops*/
+#include <stdio.h>
+
+int main() {
+    int i = 2, count = 10;
+    do {
+        printf("%d ", i);
+        i += 2;
+        count--;
+    } while (count > 0);
+    printf("\n");
+    return 0;
+}
+
+
+ /* Question: matrix addition*/
+#include <stdio.h>
+
+int main() {
+    int m, n, c, d, first[10][10], second[10][10], sum[10][10];
+
+    printf("Enter the number of rows and columns of Array(2D)\n");
+    scanf("%d%d", &m, &n);
+
+    printf("Enter the elements of first Array\n");
+    for (c = 0; c < m; c++)
+        for (d = 0; d < n; d++)
+            scanf("%d", &first[c][d]);
+
+    printf("Enter the elements of second Array\n");
+    for (c = 0; c < m; c++)
+        for (d = 0 ; d < n; d++)
+            scanf("%d", &second[c][d]);
+
+    printf("Sum of Arrays:\n");
+    for (c = 0; c < m; c++) {
+        for (d = 0 ; d < n; d++) {
+            sum[c][d] = first[c][d] + second[c][d];
+            printf("%d ", sum[c][d]);
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
+
+
+/* Question: transpose of a matrix*/
+#include <stdio.h>
+
+void transpose(int mat[10][10], int m, int n) {
+    int trans[10][10];
+    for (int i = 0; i < m; i++) {
+        for (int j = 0; j < n; j++) {
+            trans[j][i] = mat[i][j];
+        }
+    }
+    printf("Transpose of the matrix is:\n");
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < m; j++) {
+            printf("%d ", trans[i][j]);
+        }
+        printf("\n");
+    }
+}
+
+int main() {
+    int mat[10][10], m, n;
+    printf("Enter the number of rows and columns of the matrix\n");
+    scanf("%d%d", &m, &n);
+    printf("Enter the elements of the matrix\n");
+    for (int i = 0; i < m; i++) {
+        for (int j = 0; j < n; j++) {
+            scanf("%d", &mat[i][j]);
+        }
+    }
+    transpose(mat, m, n);
+    return 0;
+}
